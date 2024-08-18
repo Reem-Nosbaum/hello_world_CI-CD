@@ -1,0 +1,18 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - script: echo "Setting up environment..."
+  - script: python3 -m venv venv
+  - script: . venv/bin/activate
+  - script: pip install -r requirements.txt
+  - script: echo "Running tests..."
+  - script: python app.py
